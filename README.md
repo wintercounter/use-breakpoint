@@ -3,6 +3,9 @@
 React `useBreakpoint` hook to have different values for a variable
 based on a breakpoints.
 
+# Demo
+https://wintercounter.github.io/use-breakpoint
+
 # Setup
 
 By default you don't need to do anything. The following default values
