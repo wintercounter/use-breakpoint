@@ -1,0 +1,43 @@
+{
+  "name": "@w11r/use-breakpoint",
+  "version": "1.0.0",
+  "description": "React useBreakpoint hook to have different values for a variable based on a breakpoints.",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "mhy sb-start",
+    "test": "mhy jest && mhy tsc",
+    "build": "mhy sb-build && mhy bb --mhy-prod",
+    "config": "mhy config typescript -io && mhy config webpack eslint prettier -io",
+    "release": "npm run test && npm run build && git add -A && mhy sv --first-release && conventional-github-releaser -t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wintercounter/use-breakpoint.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "useBreakpoint",
+    "responsive",
+    "mobile",
+    "tablet"
+  ],
+  "author": "Victor Vincent <wintercounter@gmail.com> (http://wintercounter.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wintercounter/use-breakpoint/issues"
+  },
+  "homepage": "https://github.com/wintercounter/use-breakpoint#readme",
+  "mhy": {
+    "storybook": {
+      "root": {
+        "build": {
+          "output-dir": "docs"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "conventional-github-releaser": "^3.1.3"
+  }
+}
