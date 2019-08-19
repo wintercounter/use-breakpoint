@@ -8,7 +8,7 @@
     "test": "mhy jest && mhy tsc",
     "build": "mhy sb-build && mhy bb --mhy-prod",
     "config": "mhy config typescript -io && mhy config webpack eslint prettier -io",
-    "release": "npm run test && npm run build && git add -A && mhy sv --first-release && conventional-github-releaser -t"
+    "release": "npm run test && npm run build && git add -A && mhy sv && conventional-github-releaser -t"
   },
   "repository": {
     "type": "git",
