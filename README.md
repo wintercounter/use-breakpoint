@@ -6,6 +6,12 @@ based on a breakpoints.
 # Demo
 https://wintercounter.github.io/use-breakpoint
 
+# Install
+
+```bash
+npm i @w11r/use-breakpoint
+```
+
 # Setup
 
 By default you don't need to do anything. The following default values
