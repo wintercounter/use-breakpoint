@@ -46,7 +46,7 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
 export const useBreakpoint = function(defaultValue, breakpointValues) {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth)
     useResize(() => setInnerWidth(window.innerWidth))
-    return useMemo(() => calculateValue(defaultValue, breakpointValues), [innerWidth])
+    return useMemo(() => calculateValue(defaultValue, breakpointValues), [innerWidth, defaultValue])
 }
 
 interface IOptions {
