@@ -23,8 +23,31 @@ type TCalculateValue = (
     iw?: number
 ) => typeof defaultValue
 
+// We will save the calculated value until innerWidth changes
+let cachedProplessValue = {}
+const calculateProplessValue = function(iw) {
+    if (cachedProplessValue[iw]) return cachedProplessValue[iw]
+
+    const isLandscape = getIsLandscape()
+    const proplessValue = { isLandscape, isPortrait: !isLandscape, isHDPI: window.devicePixelRatio > 1 }
+
+    for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(options.breakpoints)) {
+        const key = [LANDSCAPE, PORTRAIT].includes(firstLetter)
+            ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}`
+            : `${firstLetter.toUpperCase()}${secondLetter}${restLetter.join('')}`
+        proplessValue[`is${key}`] = (iw > from && iw <= to)
+    }
+
+    cachedProplessValue = { [iw]: proplessValue }
+
+    return proplessValue
+}
+
 /* eslint-disable no-continue */
 export const calculateValue: TCalculateValue = function(defaultValue, breakpointValues = [], iw = window.innerWidth) {
+    if (defaultValue === undefined && !breakpointValues.length) {
+        return calculateProplessValue(iw)
+    }
     const isLandscape = getIsLandscape()
     if (!breakpointValues || !breakpointValues.length) {
         return defaultValue
@@ -46,7 +69,7 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
 export const useBreakpoint = function(defaultValue, breakpointValues) {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth)
     useResize(() => setInnerWidth(window.innerWidth))
-    return useMemo(() => calculateValue(defaultValue, breakpointValues), [innerWidth, defaultValue])
+    return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth), [innerWidth, defaultValue])
 }
 
 interface IOptions {

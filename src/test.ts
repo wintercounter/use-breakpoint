@@ -33,4 +33,9 @@ describe('useBreakpoint', () => {
     it(`should work with single array value`, () => {
         expect(calculateValue(300, ['mobile+', 500], 400)).toBe(500)
     })
+
+    it(`should return 'is{Key}' properties if no props were given`, () => {
+        console.log(calculateValue(undefined, [], 500))
+        expect(calculateValue(undefined, [], 500).isMobile).toBe(true)
+    })
 })

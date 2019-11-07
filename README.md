@@ -44,6 +44,8 @@ setup({
 
 # Usage
 
+## With passing values
+
 ```js
 useBreakpoint(defaultValue, breakpointValues)
 
@@ -56,6 +58,88 @@ useBreakpoint(defaultValue, breakpointValues)
 // In case you have a single breakpoint value, `['mobile', 300]`
 is enough instead of `[['mobile', 300]]`
 ```
+
+## Without passing values
+
+In case you dont specify any value to the hook, it'll return a generated
+object including boolean values for each breakpoint keys that's being
+defined in options.
+
+It'll return the following object with the basic setup.
+
+```
+{
+      isLandscape: false,
+      isPortrait: true,
+      isHDPI: false,
+      isMicro: false,
+      isMobile: true,
+      isTablet: false,
+      isSmall: false,
+      isMedium: false,
+      isLarge: false,
+      'is-Micro': false,
+      'is|Micro': false,
+      'isMicro+': true,
+      'is-Micro+': true,
+      'is|Micro+': true,
+      'isMicro-': false,
+      'is-Micro-': false,
+      'is|Micro-': false,
+      'is-Mobile': true,
+      'is|Mobile': true,
+      'isMobile+': true,
+      'is-Mobile+': true,
+      'is|Mobile+': true,
+      'isMobile-': true,
+      'is-Mobile-': true,
+      'is|Mobile-': true,
+      'is-Tablet': false,
+      'is|Tablet': false,
+      'isTablet+': false,
+      'is-Tablet+': false,
+      'is|Tablet+': false,
+      'isTablet-': true,
+      'is-Tablet-': true,
+      'is|Tablet-': true,
+      'is-Small': false,
+      'is|Small': false,
+      'isSmall+': false,
+      'is-Small+': false,
+      'is|Small+': false,
+      'isSmall-': true,
+      'is-Small-': true,
+      'is|Small-': true,
+      'is-Medium': false,
+      'is|Medium': false,
+      'isMedium+': false,
+      'is-Medium+': false,
+      'is|Medium+': false,
+      'isMedium-': true,
+      'is-Medium-': true,
+      'is|Medium-': true,
+      'is-Large': false,
+      'is|Large': false,
+      'isLarge+': false,
+      'is-Large+': false,
+      'is|Large+': false,
+      'isLarge-': true,
+      'is-Large-': true,
+      'is|Large-': true
+    }
+```
+
+Usage
+```js
+const { isMobile } = useBreakpoint()
+
+// The above is basically a replacement for
+const isMobile = useBreakpoint(false, ['mobile', true])
+```
+
+> You can also access the values with suffix and prefix but you need
+> to rename the variables because it contains invalid character:
+> `const { 'isMobile+': isMobile } = useBreakpoint()`
 
 Component example
 
@@ -105,6 +189,11 @@ You can also control your value to behave as `and up` and `and down`.
 - `['mobile-', 300]`: on mobile and down, both portrait and landscape
 
 # FAQ
+
+## Is there any best practice suggestion?
+
+Yes! Use as less hooks as possible. It's always faster to have a single
+`isMobile` variable and have simple conditions based on it.
 
 ## Which rule is being prioritized
 
