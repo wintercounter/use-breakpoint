@@ -66,9 +66,13 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
     return defaultValue
 }
 
+let cachedIw = window.innerWidth
 export const useBreakpoint = function(defaultValue, breakpointValues) {
-    const [innerWidth, setInnerWidth] = useState(window.innerWidth)
-    useResize(() => setInnerWidth(window.innerWidth))
+    const [innerWidth, setInnerWidth] = useState(cachedIw)
+    useResize(() => {
+        cachedIw = window.innerWidth
+        setInnerWidth(cachedIw)
+    })
     return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth), [innerWidth, defaultValue])
 }
 
@@ -79,15 +83,14 @@ interface IOptions {
 }
 
 export const setup = function(opts: IOptions) {
-    Object.entries(opts.breakpoints).forEach(([name, [from, to]]) => {
-        // eslint-disable-next-line
-        ;[['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) =>
+    Object.entries(opts.breakpoints).forEach(([name, [from, to]]) =>
+        [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) =>
             ['', LANDSCAPE, PORTRAIT].forEach(orientation => {
                 // eslint-disable-next-line
                 opts.breakpoints[`${orientation}${name}${symbol}`] = fromTo as [number, number]
             })
         )
-    })
+    )
 
     options = opts
 }
