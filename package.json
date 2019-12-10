@@ -6,7 +6,7 @@
   "scripts": {
     "start": "mhy sb-start",
     "test": "mhy jest && mhy tsc",
-    "build": "mhy sb-build && mhy bb --mhy-prod",
+    "build": "mhy sb-build && mhy bb --mhy-env=prod",
     "config": "mhy config typescript -io && mhy config webpack eslint prettier -io",
     "release": "npm run test && npm run build && git add -A && mhy sv && conventional-github-releaser -t"
   },

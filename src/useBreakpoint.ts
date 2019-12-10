@@ -31,6 +31,7 @@ const calculateProplessValue = function(iw) {
     const isLandscape = getIsLandscape()
     const proplessValue = { isLandscape, isPortrait: !isLandscape, isHDPI: window.devicePixelRatio > 1 }
 
+    // @ts-ignore
     for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(options.breakpoints)) {
         const key = [LANDSCAPE, PORTRAIT].includes(firstLetter)
             ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}`

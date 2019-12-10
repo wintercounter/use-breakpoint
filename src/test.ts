@@ -35,6 +35,7 @@ describe('useBreakpoint', () => {
     })
 
     it(`should return 'is{Key}' properties if no props were given`, () => {
+        // @ts-ignore
         expect(calculateValue(undefined, [], 500).isMobile).toBe(true)
     })
 })
