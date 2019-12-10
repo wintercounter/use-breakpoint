@@ -1,6 +1,6 @@
 {
   "name": "@w11r/use-breakpoint",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React useBreakpoint hook to have different values for a variable based on a breakpoints.",
   "main": "dist/index.js",
   "scripts": {
