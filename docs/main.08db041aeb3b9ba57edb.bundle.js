@@ -47,6 +47,175 @@ webpackContext.id = "./src sync recursive \\.?(story|stories|book)\\.[jt]sx?$";
 
 /***/ }),
 
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! exports provided: UP, DOWN, LANDSCAPE, PORTRAIT, options, setup, breakpoints, default, useResize, mediaQuery */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UP", function() { return UP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DOWN", function() { return DOWN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LANDSCAPE", function() { return LANDSCAPE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PORTRAIT", function() { return PORTRAIT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "options", function() { return options; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setup", function() { return setup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "breakpoints", function() { return breakpoints; });
+/* harmony import */ var _useBreakpoint__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useBreakpoint */ "./src/useBreakpoint.ts");
+/* harmony import */ var _useResize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useResize */ "./src/useResize.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useResize", function() { return _useResize__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _mediaQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mediaQuery */ "./src/mediaQuery.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "mediaQuery", function() { return _mediaQuery__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+(function () {
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
+  enterModule && enterModule(module);
+})();
+
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
+  return a;
+};
+
+
+
+
+const UP = '+';
+const DOWN = '-';
+const LANDSCAPE = '-';
+const PORTRAIT = '|';
+let options;
+const setup = function setup(opts) {
+  Object.entries(opts.breakpoints).forEach(([name, [from, to]]) => [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) => ['', LANDSCAPE, PORTRAIT].forEach(orientation => {
+    // eslint-disable-next-line
+    opts.breakpoints[`${orientation}${name}${symbol}`] = fromTo;
+  })));
+  options = opts;
+};
+const breakpoints = {
+  micro: [0, 375],
+  mobile: [376, 639],
+  tablet: [640, 1023],
+  small: [1024, 1439],
+  medium: [1440, 1919],
+  large: [1920, 10000]
+};
+setup({
+  breakpoints
+});
+const _default = _useBreakpoint__WEBPACK_IMPORTED_MODULE_0__["default"];
+/* harmony default export */ __webpack_exports__["default"] = (_default);
+
+;
+
+(function () {
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(UP, "UP", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(DOWN, "DOWN", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(LANDSCAPE, "LANDSCAPE", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(PORTRAIT, "PORTRAIT", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(options, "options", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(setup, "setup", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(breakpoints, "breakpoints", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+  reactHotLoader.register(_default, "default", "C:\\Work\\Repos\\use-breakpoint\\src\\index.ts");
+})();
+
+;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../nodejs/node_modules/mhy/node_modules/webpack/buildin/harmony-module.js */ "../../nodejs/node_modules/mhy/node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/mediaQuery.ts":
+/*!***************************!*\
+  !*** ./src/mediaQuery.ts ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ "./src/index.ts");
+(function () {
+  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
+  enterModule && enterModule(module);
+})();
+
+var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
+  return a;
+};
+
+
+
+const mediaQuery = input => {
+  let generated = '';
+
+  if (typeof input[0] === 'string') {
+    input = [input];
+  }
+
+  for (const value of input) {
+    const bp = ___WEBPACK_IMPORTED_MODULE_0__["options"].breakpoints[value[0]];
+    if (!bp) continue;
+    const key = value[0];
+    const first = key[0];
+    const last = key[key.length - 1];
+    generated += `@media screen `;
+
+    if (last === ___WEBPACK_IMPORTED_MODULE_0__["UP"]) {
+      generated += `and (min-width: ${bp[0]}) `;
+    } else if (last === ___WEBPACK_IMPORTED_MODULE_0__["DOWN"]) {
+      generated += `and (max-width: ${bp[1]}) `;
+    } else {
+      generated += `and (min-width: ${bp[0]}) and (max-width: ${bp[1]}) `;
+    }
+
+    if (first === ___WEBPACK_IMPORTED_MODULE_0__["PORTRAIT"]) {
+      generated += `and (orientation: portrait) `;
+    } else if (first === ___WEBPACK_IMPORTED_MODULE_0__["LANDSCAPE"]) {
+      generated += `and (orientation: landscape) `;
+    }
+
+    return generated += `{ ${value[1]} }`;
+  }
+};
+
+const _default = mediaQuery;
+/* harmony default export */ __webpack_exports__["default"] = (_default);
+;
+
+(function () {
+  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(mediaQuery, "mediaQuery", "C:\\Work\\Repos\\use-breakpoint\\src\\mediaQuery.ts");
+  reactHotLoader.register(_default, "default", "C:\\Work\\Repos\\use-breakpoint\\src\\mediaQuery.ts");
+})();
+
+;
+
+(function () {
+  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
+  leaveModule && leaveModule(module);
+})();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../nodejs/node_modules/mhy/node_modules/webpack/buildin/harmony-module.js */ "../../nodejs/node_modules/mhy/node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
 /***/ "./src/readme.raw.md":
 /*!***************************!*\
   !*** ./src/readme.raw.md ***!
@@ -160,18 +329,16 @@ Object(_storybook_react__WEBPACK_IMPORTED_MODULE_1__["storiesOf"])('Hooks|useBre
 /*!******************************!*\
   !*** ./src/useBreakpoint.ts ***!
   \******************************/
-/*! exports provided: calculateValue, useBreakpoint, setup, breakpoints, default */
+/*! exports provided: calculateValue, useBreakpoint, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculateValue", function() { return calculateValue; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useBreakpoint", function() { return useBreakpoint; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setup", function() { return setup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "breakpoints", function() { return breakpoints; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../nodejs/node_modules/mhy/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _useResize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useResize */ "./src/useResize.ts");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! . */ "./src/index.ts");
 (function () {
   var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
   enterModule && enterModule(module);
@@ -183,11 +350,6 @@ var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoader
 
 
 
-const UP = '+';
-const DOWN = '-';
-const LANDSCAPE = '-';
-const PORTRAIT = '|';
-let options;
 
 const getIsLandscape = function getIsLandscape() {
   const s = window.screen; // @ts-ignore
@@ -210,8 +372,8 @@ const calculateProplessValue = function calculateProplessValue(iw) {
     isHDPI: window.devicePixelRatio > 1
   }; // @ts-ignore
 
-  for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(options.breakpoints)) {
-    const key = [LANDSCAPE, PORTRAIT].includes(firstLetter) ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}` : `${firstLetter.toUpperCase()}${secondLetter}${restLetter.join('')}`;
+  for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(___WEBPACK_IMPORTED_MODULE_1__["options"].breakpoints)) {
+    const key = [___WEBPACK_IMPORTED_MODULE_1__["LANDSCAPE"], ___WEBPACK_IMPORTED_MODULE_1__["PORTRAIT"]].includes(firstLetter) ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}` : `${firstLetter.toUpperCase()}${secondLetter}${restLetter.join('')}`;
     proplessValue[`is${key}`] = iw > from && iw <= to;
   }
 
@@ -240,45 +402,27 @@ const calculateValue = function calculateValue(defaultValue, breakpointValues = 
   }
 
   for (const [key, value] of breakpointValues) {
-    if (!options.breakpoints[key]) continue;
-    const [from, to] = options.breakpoints[key];
-    if (isLandscape && key.startsWith(PORTRAIT)) continue;
-    if (!isLandscape && key.startsWith(LANDSCAPE)) continue;
-    if (iw > from && iw <= to) return value;
+    if (!___WEBPACK_IMPORTED_MODULE_1__["options"].breakpoints[key]) continue;
+    const bp = ___WEBPACK_IMPORTED_MODULE_1__["options"].breakpoints[key];
+    if (isLandscape && key[0] === ___WEBPACK_IMPORTED_MODULE_1__["PORTRAIT"]) continue;
+    if (!isLandscape && key[0] === ___WEBPACK_IMPORTED_MODULE_1__["LANDSCAPE"]) continue;
+    if (iw > bp[0] && iw <= bp[1]) return value;
   }
 
   return defaultValue;
 };
 let cachedIw = window.innerWidth;
-const useBreakpoint = function useBreakpoint(defaultValue, breakpointValues) {
+function useBreakpoint(defaultValue, breakpointValues) {
   const [innerWidth, setInnerWidth] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(cachedIw);
-  Object(_useResize__WEBPACK_IMPORTED_MODULE_1__["default"])(() => {
+  Object(___WEBPACK_IMPORTED_MODULE_1__["useResize"])(() => {
     cachedIw = window.innerWidth;
     setInnerWidth(cachedIw);
   });
   return Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => calculateValue(defaultValue, breakpointValues, innerWidth), [innerWidth, defaultValue]);
-};
+}
 
-__signature__(useBreakpoint, "useState{[innerWidth, setInnerWidth](cachedIw)}\nuseResize{}\nuseMemo{}", () => [_useResize__WEBPACK_IMPORTED_MODULE_1__["default"]]);
+__signature__(useBreakpoint, "useState{[innerWidth, setInnerWidth](cachedIw)}\nuseResize{}\nuseMemo{}", () => [___WEBPACK_IMPORTED_MODULE_1__["useResize"]]);
 
-const setup = function setup(opts) {
-  Object.entries(opts.breakpoints).forEach(([name, [from, to]]) => [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) => ['', LANDSCAPE, PORTRAIT].forEach(orientation => {
-    // eslint-disable-next-line
-    opts.breakpoints[`${orientation}${name}${symbol}`] = fromTo;
-  })));
-  options = opts;
-};
-const breakpoints = {
-  micro: [0, 375],
-  mobile: [376, 639],
-  tablet: [640, 1023],
-  small: [1024, 1439],
-  medium: [1440, 1919],
-  large: [1920, 10000]
-};
-setup({
-  breakpoints
-});
 const _default = useBreakpoint;
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
@@ -290,19 +434,12 @@ const _default = useBreakpoint;
     return;
   }
 
-  reactHotLoader.register(UP, "UP", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(DOWN, "DOWN", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(LANDSCAPE, "LANDSCAPE", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(PORTRAIT, "PORTRAIT", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(options, "options", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(getIsLandscape, "getIsLandscape", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(cachedProplessValue, "cachedProplessValue", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(calculateProplessValue, "calculateProplessValue", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(calculateValue, "calculateValue", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(cachedIw, "cachedIw", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(useBreakpoint, "useBreakpoint", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(setup, "setup", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
-  reactHotLoader.register(breakpoints, "breakpoints", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
   reactHotLoader.register(_default, "default", "C:\\Work\\Repos\\use-breakpoint\\src\\useBreakpoint.ts");
 })();
 
@@ -402,4 +539,4 @@ module.exports = __webpack_require__(/*! C:\Work\nodejs\node_modules\mhy\dist\co
 /***/ })
 
 },[[0,"runtime~main","vendors~main"]]]);
-//# sourceMappingURL=main.bffd9e0b86104a30f661.bundle.js.map
+//# sourceMappingURL=main.08db041aeb3b9ba57edb.bundle.js.map

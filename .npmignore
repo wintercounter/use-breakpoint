@@ -39,4 +39,4 @@ jest.config.js
 .eslintrc
 tsconfig.json
 webpack.config.js
-.tsbuildinfo
+*.tsbuildinfo
