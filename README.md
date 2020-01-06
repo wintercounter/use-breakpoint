@@ -148,7 +148,7 @@ import useBreakpoint from '@w11r/use-breakpoint'
 
 const MyCmp = () => {
     const columns = useBreakpoint([1,2], ['mobile', [2,1]])
-    
+
     return <Grid cols={columns} />
 }
 
@@ -188,12 +188,41 @@ You can also control your value to behave as `and up` and `and down`.
 - `['tablet-', 300]`: on tablet and below, both portrait and landscape
 - `['mobile-', 300]`: on mobile and down, both portrait and landscape
 
+## Generate Media Query strings using the same logic
+
+It is useful when you just need simple CSS. For example with `styled-components`:
+
+```js
+import styled from 'styled-components'
+import { mediaQuery } from '@w11r/use-breakpoint'
+
+const mediaQueryString = mediaQuery(
+    ['mobile-', `width: 100%;`]
+)
+
+const Box = styled.div`
+    ${mediaQuery(
+        ['mobile-', `width: 100%;`]
+    )}
+`
+
+// You can still use multiple queries at once just like with the hook:
+mediaQuery([['mobile-', `width: 100%`], ['medium+', `width: 50%`]])
+```
+
 # FAQ
 
 ## Is there any best practice suggestion?
 
 Yes! Use as less hooks as possible. It's always faster to have a single
 `isMobile` variable and have simple conditions based on it.
+
+## Why not using an `Object`? Why the `Array` structure?
+
+Object's cannot guarantee the order of the defined keys. It is crucial
+to check for values in the correct order because `useBreakpoint` uses
+eager evaluation and `mediaQuery` must maintain the defined order of
+the generated Media Queries.
 
 ## Which rule is being prioritized
 
