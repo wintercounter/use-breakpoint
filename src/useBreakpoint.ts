@@ -1,12 +1,5 @@
 import { useState, useMemo } from 'react'
-import useResize from './useResize'
-
-const UP = '+'
-const DOWN = '-'
-const LANDSCAPE = '-'
-const PORTRAIT = '|'
-
-let options
+import { options, useResize, LANDSCAPE, PORTRAIT } from '.'
 
 const getIsLandscape = function() {
     const s = window.screen
@@ -59,10 +52,10 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
     }
     for (const [key, value] of breakpointValues as TBreakpointItem[]) {
         if (!options.breakpoints[key]) continue
-        const [from, to] = options.breakpoints[key]
-        if (isLandscape && key.startsWith(PORTRAIT)) continue
-        if (!isLandscape && key.startsWith(LANDSCAPE)) continue
-        if (iw > from && iw <= to) return value
+        const bp = options.breakpoints[key]
+        if (isLandscape && key[0] === PORTRAIT) continue
+        if (!isLandscape && key[0] === LANDSCAPE) continue
+        if (iw > bp[0] && iw <= bp[1]) return value
     }
     return defaultValue
 }
@@ -79,35 +72,5 @@ export function useBreakpoint(defaultValue, breakpointValues) {
     })
     return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth), [innerWidth, defaultValue])
 }
-
-interface IOptions {
-    breakpoints: {
-        [key: string]: number[]
-    }
-}
-
-export const setup = function(opts: IOptions) {
-    Object.entries(opts.breakpoints).forEach(([name, [from, to]]) =>
-        [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) =>
-            ['', LANDSCAPE, PORTRAIT].forEach(orientation => {
-                // eslint-disable-next-line
-                opts.breakpoints[`${orientation}${name}${symbol}`] = fromTo as [number, number]
-            })
-        )
-    )
-
-    options = opts
-}
-
-export const breakpoints = {
-    micro: [0, 375],
-    mobile: [376, 639],
-    tablet: [640, 1023],
-    small: [1024, 1439],
-    medium: [1440, 1919],
-    large: [1920, 10000]
-}
-
-setup({ breakpoints })
 
 export default useBreakpoint
