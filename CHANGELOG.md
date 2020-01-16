@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/wintercounter/use-breakpoint/compare/v1.2.0...v1.3.0) (2020-01-16)
+
+
+### Features
+
+* add support for generating Media Query strings ([b4cac9f](https://github.com/wintercounter/use-breakpoint/commit/b4cac9fea59f7e83e17683b839229ee9dfbe164e))
+
+
+### Bug Fixes
+
+* TS declaration for the case when no values are provided ([ad23da4](https://github.com/wintercounter/use-breakpoint/commit/ad23da4d7e8c5acf8672661e0ba50aae497fc260))
+* **default:** handle orientation correctly ([b1f2ff4](https://github.com/wintercounter/use-breakpoint/commit/b1f2ff4c1fe7a4e98fce75d3ca406529c59fa53f))
+
 ## [1.2.0](https://github.com/wintercounter/use-breakpoint/compare/v1.1.1...v1.2.0) (2020-01-06)
 
 
