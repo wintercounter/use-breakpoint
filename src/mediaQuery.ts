@@ -16,15 +16,14 @@ const mediaQuery = input => {
 
         generated += `@media screen `
 
-
         if (last === UP) {
-            generated += `and (min-width: ${bp[0]}) `
+            generated += `and (min-width: ${bp[0]}px) `
         }
         else if (last === DOWN) {
-            generated += `and (max-width: ${bp[1]}) `
+            generated += `and (max-width: ${bp[1]}px) `
         }
         else {
-            generated += `and (min-width: ${bp[0]}) and (max-width: ${bp[1]}) `
+            generated += `and (min-width: ${bp[0]}px) and (max-width: ${bp[1]}px) `
         }
 
         if (first === PORTRAIT) {
@@ -34,8 +33,10 @@ const mediaQuery = input => {
             generated += `and (orientation: landscape) `
         }
 
-        return generated += `{ ${value[1]} }`
+        generated += `{ ${value[1]} }`
     }
+
+    return generated
 }
 
 export default mediaQuery

@@ -224,7 +224,7 @@ to check for values in the correct order because `useBreakpoint` uses
 eager evaluation and `mediaQuery` must maintain the defined order of
 the generated Media Queries.
 
-## Which rule is being prioritized
+## Which rule is being prioritized?
 
 The hook uses _eager_ evaluation, so the first truthy breakpoint value
 gets returned.
