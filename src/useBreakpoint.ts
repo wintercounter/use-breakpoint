@@ -26,10 +26,12 @@ const calculateProplessValue = function(iw) {
 
     // @ts-ignore
     for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(options.breakpoints)) {
-        const key = [LANDSCAPE, PORTRAIT].includes(firstLetter)
-            ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}`
+        const isOrientedLandscape = LANDSCAPE === firstLetter
+        const isOrientedPortrait = PORTRAIT === firstLetter
+        const isOriented = isOrientedLandscape || isOrientedPortrait
+        const key = isOriented ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}`
             : `${firstLetter.toUpperCase()}${secondLetter}${restLetter.join('')}`
-        proplessValue[`is${key}`] = (iw > from && iw <= to)
+        proplessValue[`is${key}`] = (iw > from && iw <= to && (!isOriented || (isOrientedLandscape && isLandscape) || (isOrientedPortrait && !isLandscape)))
     }
 
     cachedProplessValue = { [iw]: proplessValue }
