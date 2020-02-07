@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/wintercounter/use-breakpoint/compare/v1.3.0...v1.2.1) (2020-02-07)
+
+
+### Bug Fixes
+
+* **mediaQuery:** emit all size declarations not only the first one ([ac7ecfd](https://github.com/wintercounter/use-breakpoint/commit/ac7ecfdc27336bb3738c0fcc967efb76b798ddd6))
+
 ## [1.2.0](https://github.com/wintercounter/use-breakpoint/compare/v1.1.1...v1.2.0) (2020-01-06)
 
 
