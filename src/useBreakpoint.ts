@@ -62,6 +62,7 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
     return defaultValue
 }
 
+// @ts-ignore
 const getInnerWidth = () => typeof window !== 'undefined' ? window.innerWidth : (global.innerWidth || 1920)
 
 let cachedIw = getInnerWidth()
