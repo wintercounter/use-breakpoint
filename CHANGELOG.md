@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/wintercounter/use-breakpoint/compare/v1.3.2...v1.3.3) (2020-02-29)
+
+
+### Bug Fixes
+
+* **ssr:** temp solution to allow ssr till v2 ([4e1e5a9](https://github.com/wintercounter/use-breakpoint/commit/4e1e5a9b612f38bf1a5410cf30c23b2401aae275))
+
 ### [1.3.2](https://github.com/wintercounter/use-breakpoint/compare/v1.2.1...v1.3.2) (2020-02-29)
 
 
