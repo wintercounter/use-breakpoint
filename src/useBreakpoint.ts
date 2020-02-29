@@ -62,14 +62,16 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
     return defaultValue
 }
 
-let cachedIw = window?.innerWidth || global?.innerWidth
+const getInnerWidth = () => typeof window !== 'undefined' ? window.innerWidth : (global.innerWidth || 1920)
+
+let cachedIw = getInnerWidth()
 
 export function useBreakpoint(defaultValue: any, breakpointValues: any[]): any
 export function useBreakpoint(defaultValue: undefined, breakpointValues: undefined): { [key: string]: boolean }
 export function useBreakpoint(defaultValue, breakpointValues) {
     const [innerWidth, setInnerWidth] = useState(cachedIw)
     useResize(() => {
-        cachedIw = window?.innerWidth || global?.innerWidth
+        cachedIw = getInnerWidth()
         setInnerWidth(cachedIw)
     })
     return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth), [innerWidth, defaultValue])
