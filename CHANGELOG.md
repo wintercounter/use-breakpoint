@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/wintercounter/use-breakpoint/compare/v1.2.1...v1.3.2) (2020-02-29)
+
+
+### Bug Fixes
+
+* **default:** handle orientation correctly ([b1f2ff4](https://github.com/wintercounter/use-breakpoint/commit/b1f2ff4c1fe7a4e98fce75d3ca406529c59fa53f))
+* **ssr:** temp solution to allow ssr till v2 ([4c62d7c](https://github.com/wintercounter/use-breakpoint/commit/4c62d7cf3f638c1de84c989d8561216176d940ec))
+
 ### [1.3.1](https://github.com/wintercounter/use-breakpoint/compare/v1.2.1...v1.3.1) (2020-02-07)
 
 ### Bug Fixes
