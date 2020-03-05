@@ -30,11 +30,17 @@ export const setup = function(opts: IOptions) {
 
 export const breakpoints = {
     micro: [0, 375],
+    mi: [0, 375],
     mobile: [376, 639],
+    m: [376, 639],
     tablet: [640, 1023],
+    t: [640, 1023],
     small: [1024, 1439],
+    s: [1024, 1439],
     medium: [1440, 1919],
-    large: [1920, 10000]
+    med: [1440, 1919],
+    large: [1920, 10000],
+    l: [1920, 10000]
 }
 
 setup({ breakpoints })
