@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/wintercounter/use-breakpoint/compare/v1.3.3...v1.4.0) (2020-03-05)
+
+
+### Features
+
+* **mediaQuery:** add support for Object type output ([4025772](https://github.com/wintercounter/use-breakpoint/commit/402577293a8818033cd3e8583892da03498e1bf8))
+* **options:** add support for short names ([0a4d398](https://github.com/wintercounter/use-breakpoint/commit/0a4d3984f4cf7eb435b69e29dd345b27661b7e44))
+
 ### [1.3.3](https://github.com/wintercounter/use-breakpoint/compare/v1.3.2...v1.3.3) (2020-02-29)
 
 
