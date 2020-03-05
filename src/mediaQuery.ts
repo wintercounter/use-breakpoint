@@ -1,7 +1,7 @@
 import { options, LANDSCAPE, PORTRAIT, UP, DOWN } from '.'
 
-const mediaQuery = input => {
-    let generated = ''
+const mediaQuery = (input, returnType = String) => {
+    let generated = returnType === String ? '' : {}
     if (typeof input[0] === 'string') {
         input = [input]
     }
@@ -14,26 +14,27 @@ const mediaQuery = input => {
         const first = key[0]
         const last = key[key.length - 1]
 
-        generated += `@media screen `
+        let query = `@media screen `
 
         if (last === UP) {
-            generated += `and (min-width: ${bp[0]}px) `
-        }
-        else if (last === DOWN) {
-            generated += `and (max-width: ${bp[1]}px) `
-        }
-        else {
-            generated += `and (min-width: ${bp[0]}px) and (max-width: ${bp[1]}px) `
+            query += `and (min-width: ${bp[0]}px) `
+        } else if (last === DOWN) {
+            query += `and (max-width: ${bp[1]}px) `
+        } else {
+            query += `and (min-width: ${bp[0]}px) and (max-width: ${bp[1]}px) `
         }
 
         if (first === PORTRAIT) {
-            generated += `and (orientation: portrait) `
-        }
-        else if (first === LANDSCAPE) {
-            generated += `and (orientation: landscape) `
+            query += `and (orientation: portrait) `
+        } else if (first === LANDSCAPE) {
+            query += `and (orientation: landscape) `
         }
 
-        generated += `{ ${value[1]} }`
+        if (returnType === String) {
+            generated += query + `{ ${value[1]} }`
+        } else {
+            generated[query] = value[1]
+        }
     }
 
     return generated
