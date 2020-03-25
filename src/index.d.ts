@@ -14,11 +14,17 @@ export declare let options: any;
 export declare const setup: (opts: IOptions) => void;
 export declare const breakpoints: {
     micro: number[];
+    mi: number[];
     mobile: number[];
+    m: number[];
     tablet: number[];
+    t: number[];
     small: number[];
+    s: number[];
     medium: number[];
+    med: number[];
     large: number[];
+    l: number[];
 };
 export default useBreakpoint;
 export { useResize, mediaQuery };

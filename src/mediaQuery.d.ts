@@ -1,2 +1,2 @@
-declare const mediaQuery: (input: any) => string;
+declare const mediaQuery: (input: any, returnType?: ObjectConstructor | StringConstructor) => {};
 export default mediaQuery;

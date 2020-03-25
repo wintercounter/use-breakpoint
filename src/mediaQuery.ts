@@ -1,6 +1,6 @@
 import { options, LANDSCAPE, PORTRAIT, UP, DOWN } from '.'
 
-const mediaQuery = (input, returnType = String) => {
+const mediaQuery = (input, returnType: StringConstructor|ObjectConstructor = String) => {
     let generated = returnType === String ? '' : {}
     if (typeof input[0] === 'string') {
         input = [input]
