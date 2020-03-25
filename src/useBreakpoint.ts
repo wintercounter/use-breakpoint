@@ -68,8 +68,8 @@ const getInnerWidth = () => typeof window !== 'undefined' ? window.innerWidth : 
 let cachedIw = getInnerWidth()
 
 export function useBreakpoint(defaultValue: any, breakpointValues: any[]): any
-export function useBreakpoint(defaultValue: undefined, breakpointValues: undefined): { [key: string]: boolean }
-export function useBreakpoint(defaultValue, breakpointValues) {
+export function useBreakpoint(): { [key: string]: boolean }
+export function useBreakpoint(defaultValue?, breakpointValues?) {
     const [innerWidth, setInnerWidth] = useState(cachedIw)
     useResize(() => {
         cachedIw = getInnerWidth()
