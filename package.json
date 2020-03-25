@@ -1,6 +1,6 @@
 {
   "name": "@w11r/use-breakpoint",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "React useBreakpoint hook to have different values for a variable based on a breakpoints.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "mhyd jest && mhyd tsc",
     "build": "mhyd sb-build && mhyd bb --mhy-env=prod",
     "config": "mhyd config typescript -io && mhyd config webpack eslint prettier -io",
-    "release": "npm run test && npm run build && git add -A && mhyd sv && npx conventional-github-releaser -t"
+    "release": "npm run test && npm run build && git add -A && mhy sv && npx conventional-github-releaser -t"
   },
   "repository": {
     "type": "git",

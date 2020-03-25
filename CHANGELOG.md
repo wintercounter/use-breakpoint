@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/wintercounter/use-breakpoint/compare/v1.4.0...v1.4.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* **useBreakpoint:** match logic to Media Queries logic ([b7b3d56](https://github.com/wintercounter/use-breakpoint/commit/b7b3d56ae55859d97005d34a08d70075852789cd))
+* useBreakpoint input types ([813c8e9](https://github.com/wintercounter/use-breakpoint/commit/813c8e9cb57ab7f13b69b2c4f41552cc02e30be4))
+
 ## [1.4.0](https://github.com/wintercounter/use-breakpoint/compare/v1.3.3...v1.4.0) (2020-03-05)
 
 
