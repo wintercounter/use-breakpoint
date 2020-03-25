@@ -57,7 +57,7 @@ export const calculateValue: TCalculateValue = function(defaultValue, breakpoint
         const bp = options.breakpoints[key]
         if (isLandscape && key[0] === PORTRAIT) continue
         if (!isLandscape && key[0] === LANDSCAPE) continue
-        if (iw > bp[0] && iw <= bp[1]) return value
+        if (iw >= bp[0] && iw <= bp[1]) return value
     }
     return defaultValue
 }
