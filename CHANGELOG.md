@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/wintercounter/use-breakpoint/compare/v1.4.2...v1.4.3) (2020-05-15)
+
+
+### Bug Fixes
+
+* missing dependencies ([cbf6f3a](https://github.com/wintercounter/use-breakpoint/commit/cbf6f3a63487b134218f8a374d1d982c7a8d08f0))
+
 ### [1.4.2](https://github.com/wintercounter/use-breakpoint/compare/v1.4.1...v1.4.2) (2020-05-15)
 
 
