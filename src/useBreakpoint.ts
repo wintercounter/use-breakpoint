@@ -67,13 +67,13 @@ let cachedIh = getInnerHeight()
 export function useBreakpoint(defaultValue: any, breakpointValues: any[]): any
 export function useBreakpoint(): { [key: string]: boolean }
 export function useBreakpoint(defaultValue?, breakpointValues?) {
-    const [[innerWidth, innerHeight], setInnerWidth] = useState(cachedIw)
+    const [[innerWidth, innerHeight], setInnerWidth] = useState([cachedIw, cachedIh])
     useResize(() => {
         cachedIw = getInnerWidth()
         cachedIh = getInnerHeight()
         setInnerWidth([cachedIw, cachedIh])
     })
-    return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth, innerHeight), [innerWidth, defaultValue])
+    return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth, innerHeight), [innerWidth, innerHeight, defaultValue])
 }
 
 export default useBreakpoint

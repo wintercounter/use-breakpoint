@@ -22,6 +22,8 @@ storiesOf('Hooks|useBreakpoint', module).add(
             ['large', 'is large']
         ])
 
+        console.log(useBreakpoint())
+
         return <div>
             Example code
             <pre>{`const value = useBreakpoint('none', [
