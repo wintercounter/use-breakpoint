@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/wintercounter/use-breakpoint/compare/v1.4.1...v1.4.2) (2020-05-15)
+
+
+### Bug Fixes
+
+* stop relying on orientation ([8e5b24a](https://github.com/wintercounter/use-breakpoint/commit/8e5b24a61f90f5a91f7976bbbac33045454bd853))
+
 ### [1.4.1](https://github.com/wintercounter/use-breakpoint/compare/v1.4.0...v1.4.1) (2020-03-25)
 
 
