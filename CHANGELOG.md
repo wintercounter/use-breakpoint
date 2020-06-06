@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/wintercounter/use-breakpoint/compare/v1.4.3...v1.5.0) (2020-06-06)
+
+
+### Features
+
+* add cjs version ([15e436c](https://github.com/wintercounter/use-breakpoint/commit/15e436c543958cb339980ea257462c31452beb91))
+
 ### [1.4.3](https://github.com/wintercounter/use-breakpoint/compare/v1.4.2...v1.4.3) (2020-05-15)
 
 
