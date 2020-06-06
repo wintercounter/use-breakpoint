@@ -2,11 +2,14 @@
   "name": "@w11r/use-breakpoint",
   "version": "1.4.3",
   "description": "React useBreakpoint hook to have different values for a variable based on a breakpoints.",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
   "scripts": {
-    "start": "mhyd sb-start",
-    "test": "mhyd jest && mhyd tsc",
-    "build": "mhyd sb-build && mhyd bb --mhy-env=prod",
+    "start": "mhy sb-start",
+    "test": "mhy jest && mhy tsc",
+    "build": "mhy sb-build && npm run build:es6 && npm run build:cjs",
+    "build:es6": "mhy bb --mhy-env=prod",
+    "build:cjs": "mhy bb --mhy-env=prod:cjs",
     "config": "mhyd config typescript -io && mhyd config webpack eslint prettier -io",
     "release": "npm run test && npm run build && git add -A && mhy sv && npx conventional-github-releaser -t"
   },
@@ -34,6 +37,46 @@
         "build": {
           "output-dir": "docs"
         }
+      }
+    },
+    "mhy": {
+      "cjs": {
+        "distFolder": "dist/cjs"
+      }
+    },
+    "babel": {
+      "cjs": {
+        "presets": [
+          {
+            "$match": {
+              "query": "$[?(@[0].includes('preset-env'))]",
+              "value": [
+                {
+                  "$match": {
+                    "index": 1,
+                    "value": {
+                      "modules": "commonjs",
+                      "targets": {
+                        "$replace": {
+                          "node": true,
+                          "browsers": false,
+                          "esmodules": true
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "plugins": [
+          {
+            "$prepend": {
+              "$expression": "$params.require.resolve('babel-plugin-add-module-exports')"
+            }
+          }
+        ]
       }
     }
   },
