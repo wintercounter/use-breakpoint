@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/wintercounter/use-breakpoint/compare/v1.5.0...v1.6.0) (2020-06-21)
+
+
+### Features
+
+* add multi-range breakpoints ([29c2b9f](https://github.com/wintercounter/use-breakpoint/commit/29c2b9f03899c756c7a6103bb28703112a300e36))
+
 ## [1.5.0](https://github.com/wintercounter/use-breakpoint/compare/v1.4.3...v1.5.0) (2020-06-06)
 
 
