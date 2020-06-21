@@ -40,7 +40,12 @@ export const breakpoints = {
     medium: [1440, 1919],
     med: [1440, 1919],
     large: [1920, 10000],
-    l: [1920, 10000]
+    l: [1920, 10000],
+    // Multi range
+    device: [0, 1023],
+    d: [0, 1023],
+    smallDevice: [0, 639],
+    sd: [0, 639]
 }
 
 setup({ breakpoints })

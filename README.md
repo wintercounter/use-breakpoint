@@ -15,16 +15,27 @@ npm i @w11r/use-breakpoint
 # Setup
 
 By default you don't need to do anything. The following default values
-are being used.
+are being used. It also shorthands.
 
 ```js
 const breakpoints = {
     micro: [0, 375],
+    mi: [0, 375],
     mobile: [376, 639],
+    m: [376, 639],
     tablet: [640, 1023],
+    t: [640, 1023],
     small: [1024, 1439],
+    s: [1024, 1439],
     medium: [1440, 1919],
-    large: [1920, 10000]
+    med: [1440, 1919],
+    large: [1920, 10000],
+    l: [1920, 10000],
+    // Multi range
+    device: [0, 1023],
+    d: [0, 1023],
+    smallDevice: [0, 639],
+    sd: [0, 639]
 }
 ```
 
