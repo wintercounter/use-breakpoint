@@ -25,6 +25,10 @@ export declare const breakpoints: {
     med: number[];
     large: number[];
     l: number[];
+    device: number[];
+    d: number[];
+    smallDevice: number[];
+    sd: number[];
 };
 export default useBreakpoint;
 export { useResize, mediaQuery };
