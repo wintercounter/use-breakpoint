@@ -28,7 +28,7 @@ const calculateProplessValue = function(iw, ih) {
         proplessValue[`is${key}`] = (iw > from && iw <= to && (!isOriented || (isOrientedLandscape && isLandscape) || (isOrientedPortrait && !isLandscape)))
     }
 
-    cachedProplessValue = { [iw]: proplessValue }
+    cachedProplessValue[key] = proplessValue
 
     return proplessValue
 }
