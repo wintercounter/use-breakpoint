@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/wintercounter/use-breakpoint/compare/v1.6.0...v1.7.0) (2020-07-01)
+
+
+### Features
+
+* add support for media expressions directly from propless useBreakpoint ([b188a49](https://github.com/wintercounter/use-breakpoint/commit/b188a49f65e3f15a03e8ccabd57f5d9f1988ad87))
+
+
+### Bug Fixes
+
+* use correct cache key ([84e4a5c](https://github.com/wintercounter/use-breakpoint/commit/84e4a5c41765f2a22b80e1a98381a97c79e59678))
+
 ## [1.6.0](https://github.com/wintercounter/use-breakpoint/compare/v1.5.0...v1.6.0) (2020-06-21)
 
 
