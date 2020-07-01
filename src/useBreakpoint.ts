@@ -16,16 +16,18 @@ const calculateProplessValue = function(iw, ih) {
     if (cachedProplessValue[key]) return cachedProplessValue[key]
 
     const isLandscape = iw > ih
-    const proplessValue = { isLandscape, isPortrait: !isLandscape, isHDPI: window.devicePixelRatio > 1 }
+    const proplessValue = { isLandscape, isPortrait: !isLandscape, isHDPI: window.devicePixelRatio > 1, innerWidth: iw, innerHeight: ih, media: {} }
 
     // @ts-ignore
-    for (const [[firstLetter, secondLetter, ...restLetter], [from, to]] of Object.entries(options.breakpoints)) {
+    for (const [k, [from, to]] of Object.entries(options.breakpoints)) {
+        const [firstLetter, secondLetter, ...restLetter] = k
         const isOrientedLandscape = LANDSCAPE === firstLetter
         const isOrientedPortrait = PORTRAIT === firstLetter
         const isOriented = isOrientedLandscape || isOrientedPortrait
         const key = isOriented ? `${firstLetter}${secondLetter.toUpperCase()}${restLetter.join('')}`
             : `${firstLetter.toUpperCase()}${secondLetter}${restLetter.join('')}`
         proplessValue[`is${key}`] = (iw > from && iw <= to && (!isOriented || (isOrientedLandscape && isLandscape) || (isOrientedPortrait && !isLandscape)))
+        proplessValue.media[k] = `(min-width: ${from}px) and (max-width: ${to}px)`
     }
 
     cachedProplessValue[key] = proplessValue
