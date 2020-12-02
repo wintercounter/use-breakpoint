@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/wintercounter/use-breakpoint/compare/v1.7.0...v1.7.1) (2020-12-02)
+
+
+### Bug Fixes
+
+* **useBreakpoints:** adding extra check on window so nextjs won't complain ([e35efdb](https://github.com/wintercounter/use-breakpoint/commit/e35efdbcdf76878445a92934327c21e36fc1c187))
+* **useBreakpoints:** NextJS support ([9150685](https://github.com/wintercounter/use-breakpoint/commit/915068574328c50bf77aec9c0746021f98fac3d6))
+
 ## [1.7.0](https://github.com/wintercounter/use-breakpoint/compare/v1.6.0...v1.7.0) (2020-07-01)
 
 
