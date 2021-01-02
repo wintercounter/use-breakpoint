@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/wintercounter/use-breakpoint/compare/v1.7.1...v1.8.0) (2021-01-02)
+
+
+### Features
+
+* **mediaQuery:** add support for prefix only breakpoints ([436e6e7](https://github.com/wintercounter/use-breakpoint/commit/436e6e7cd50b5a8575170e3209e98a4751af4541))
+* **mediaQuery:** add support for shorthands ([2a58497](https://github.com/wintercounter/use-breakpoint/commit/2a58497dd64130a4eb81f86a6cce8dcc2fe7f7a4))
+
 ### [1.7.1](https://github.com/wintercounter/use-breakpoint/compare/v1.7.0...v1.7.1) (2020-12-02)
 
 
