@@ -221,6 +221,30 @@ const Box = styled.div`
 mediaQuery([['mobile-', `width: 100%`], ['medium+', `width: 50%`]])
 ```
 
+This utility comes with additional support for `shorthands` which is configurable through `options`.
+
+```js
+setup({
+    shorthands: {
+        foo: '@media (wow: bar) and (hmm: khm)'
+    }
+})
+
+mediaQuery(['foo', value])
+```
+
+Additionally, it supports `dark` and `light` mode prefixes:
+- `(`: Light mode
+- `)`: Dark mode
+
+```js
+mediaQuery([')mobile', 'content'])
+// @media screen and (min-width: 376px) and (max-width: 639px) and (prefers-color-scheme: dark) { content }
+
+mediaQuery([')', 'content'])
+// @media screen and (prefers-color-scheme: dark) { content }
+```
+
 # FAQ
 
 ## Is there any best practice suggestion?

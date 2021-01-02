@@ -10,7 +10,7 @@
     "build": "mhy sb-build && npm run build:es6 && npm run build:cjs",
     "build:es6": "mhy bb --mhy-env=prod",
     "build:cjs": "mhy bb --mhy-env=prod:cjs",
-    "config": "mhy config typescript -io && mhy config webpack eslint prettier -io",
+    "config": "mhy config typescript eslint prettier -io",
     "release": "npm run test && npm run build && git add -A && mhy sv && npx conventional-github-releaser -t"
   },
   "repository": {

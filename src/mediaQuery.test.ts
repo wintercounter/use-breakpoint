@@ -62,4 +62,47 @@ describe('mediaQuery', () => {
             '@media screen and (min-width: 640px) and (max-width: 1023px) ': { obj: 'bar' }
         })
     })
+
+    it(`should handle shorthands`, () => {
+        expect(mediaQuery(
+            [
+                ['dark', 'content']
+            ]
+        )).toStrictEqual('@media screen and (prefers-color-scheme: dark){ content }')
+    })
+
+    it(`should handle object shorthands`, () => {
+        expect(mediaQuery(
+            [
+                ['dark', { obj: 'foo' }]
+            ],
+            Object
+        )).toStrictEqual({
+            '@media screen and (prefers-color-scheme: dark)': { obj: 'foo'}
+        })
+    })
+
+    it(`should fallback`, () => {
+        expect(mediaQuery(
+            [
+                ['foo', 'content']
+            ]
+        )).toStrictEqual(`foo{ content }`)
+    })
+
+    it(`should support dark prefix`, () => {
+        expect(mediaQuery(
+            [
+                [')mobile', 'content']
+            ]
+        )).toStrictEqual(`@media screen and (min-width: 376px) and (max-width: 639px) and (prefers-color-scheme: dark) { content }`)
+    })
+
+    it(`should support only prefix mode`, () => {
+        expect(mediaQuery(
+            [
+                [')', 'content']
+            ]
+        )).toStrictEqual(`@media screen and (prefers-color-scheme: dark) { content }`)
+    })
 })

@@ -6,10 +6,15 @@ export const UP = '+'
 export const DOWN = '-'
 export const LANDSCAPE = '-'
 export const PORTRAIT = '|'
+export const LIGHT = '('
+export const DARK = ')'
 
 interface IOptions {
     breakpoints: {
         [key: string]: number[]
+    },
+    shorthands?: {
+        [key:string]: string
     }
 }
 
@@ -18,12 +23,16 @@ export let options
 export const setup = function(opts: IOptions) {
     Object.entries(opts.breakpoints).forEach(([name, [from, to]]) =>
         [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) =>
-            ['', LANDSCAPE, PORTRAIT].forEach(orientation => {
+            ['', LANDSCAPE, PORTRAIT, LIGHT, DARK].forEach(prefix => {
                 // eslint-disable-next-line
-                opts.breakpoints[`${orientation}${name}${symbol}`] = fromTo as [number, number]
+                opts.breakpoints[`${prefix}${name}${symbol}`] = fromTo as [number, number]
             })
         )
     )
+    // Only-prefix support
+    Object.assign(opts.breakpoints, {
+        [LANDSCAPE]: [true], [PORTRAIT]: [true], [LIGHT]: [true], [DARK]: [true]
+    })
 
     options = opts
 }
@@ -47,8 +56,13 @@ export const breakpoints = {
     smallDevice: [0, 639],
     sd: [0, 639]
 }
+const shorthands = {
+    dark: '@media screen and (prefers-color-scheme: dark)',
+    light: '@media screen and (prefers-color-scheme: light)',
+    hdpi: '@media screen and (min-resolution: 192dpi)'
+}
 
-setup({ breakpoints })
+setup({ breakpoints, shorthands })
 
 export default useBreakpoint
 export { useResize, mediaQuery }
