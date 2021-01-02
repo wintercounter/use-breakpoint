@@ -28,6 +28,8 @@ const calculateProplessValue = function (iw, ih) {
 
     // @ts-ignore
     for (const [k, [from, to]] of Object.entries(options.breakpoints)) {
+        // It's a prefix breakpoint, no need to process
+        if (from === true) continue
         const [firstLetter, secondLetter, ...restLetter] = k
         const isOrientedLandscape = LANDSCAPE === firstLetter
         const isOrientedPortrait = PORTRAIT === firstLetter

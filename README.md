@@ -249,7 +249,7 @@ mediaQuery([')', 'content'])
 
 ## Is there any best practice suggestion?
 
-Yes! Use as less hooks as possible. It's always faster to have a single
+Yes! Use as fewer hooks as possible. It's always faster to have a single
 `isMobile` variable and have simple conditions based on it.
 
 ## Why not using an `Object`? Why the `Array` structure?
