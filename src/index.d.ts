@@ -5,9 +5,14 @@ export declare const UP = "+";
 export declare const DOWN = "-";
 export declare const LANDSCAPE = "-";
 export declare const PORTRAIT = "|";
+export declare const LIGHT = "(";
+export declare const DARK = ")";
 interface IOptions {
     breakpoints: {
         [key: string]: number[];
+    };
+    shorthands?: {
+        [key: string]: string;
     };
 }
 export declare let options: any;
