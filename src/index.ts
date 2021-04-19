@@ -2,6 +2,8 @@ import useBreakpoint from './useBreakpoint'
 import useResize from './useResize'
 import mediaQuery from './mediaQuery'
 
+export * from './provider'
+
 export const UP = '+'
 export const DOWN = '-'
 export const LANDSCAPE = '-'
