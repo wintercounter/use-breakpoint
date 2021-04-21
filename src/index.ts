@@ -14,17 +14,21 @@ export const DARK = ')'
 interface IOptions {
     breakpoints: {
         [key: string]: number[]
-    },
+    }
     shorthands?: {
-        [key:string]: string
+        [key: string]: string
     }
 }
 
 export let options
 
-export const setup = function(opts: IOptions) {
+export const setup = function (opts: IOptions) {
     Object.entries(opts.breakpoints).forEach(([name, [from, to]]) =>
-        [['', [from, to]], [UP, [from, 10000]], [DOWN, [0, to]]].forEach(([symbol, fromTo]) =>
+        [
+            ['', [from, to]],
+            [UP, [from, 10000]],
+            [DOWN, [0, to]]
+        ].forEach(([symbol, fromTo]) =>
             ['', LANDSCAPE, PORTRAIT, LIGHT, DARK].forEach(prefix => {
                 // eslint-disable-next-line
                 opts.breakpoints[`${prefix}${name}${symbol}`] = fromTo as [number, number]
@@ -33,7 +37,10 @@ export const setup = function(opts: IOptions) {
     )
     // Only-prefix support
     Object.assign(opts.breakpoints, {
-        [LANDSCAPE]: [true], [PORTRAIT]: [true], [LIGHT]: [true], [DARK]: [true]
+        [LANDSCAPE]: [true],
+        [PORTRAIT]: [true],
+        [LIGHT]: [true],
+        [DARK]: [true]
     })
 
     options = opts

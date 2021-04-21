@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import useResize from "./useResize";
+import useResize from './useResize'
 
 // @ts-ignore
 export const getInnerWidth = () => (typeof window !== 'undefined' ? window.innerWidth : global.innerWidth || 1920)
@@ -8,12 +8,12 @@ export const getInnerHeight = () => (typeof window !== 'undefined' ? window.inne
 
 export const defaultState = {
     innerWidth: getInnerWidth(),
-    innerHeight: getInnerHeight(),
+    innerHeight: getInnerHeight()
 }
 
 export const Context = createContext(defaultState)
 
-export const BreakpointProvider = ({children}) => {
+export const BreakpointProvider = ({ children }) => {
     const [value, setValue] = useState(defaultState)
     useResize(() => {
         setValue({

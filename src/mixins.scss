@@ -1,85 +1,99 @@
 $breakpoints: (
-	'micro': (0, 375),
-	'mobile': (376, 639),
-	'tablet': (640, 1023),
-	'small': (1024, 1439),
-	'medium': (1440, 1919),
-	'large': (1920, 10000)
+    'micro': (
+        0,
+        375
+    ),
+    'mobile': (
+        376,
+        639
+    ),
+    'tablet': (
+        640,
+        1023
+    ),
+    'small': (
+        1024,
+        1439
+    ),
+    'medium': (
+        1440,
+        1919
+    ),
+    'large': (
+        1920,
+        10000
+    )
 );
 
 @mixin on($key) {
-	$keyLength: str-length($key);
-	$firstLetter: str-slice($key, 1, 1);
-	$lastLetter: str-slice($key, $keyLength);
+    $keyLength: str-length($key);
+    $firstLetter: str-slice($key, 1, 1);
+    $lastLetter: str-slice($key, $keyLength);
 
-	// Clean key
-	@if $firstLetter == '-' or $firstLetter == '|' {
-		$key: str-slice($key, 2, str-length($key));
-	}
-	@if $lastLetter == '-' or $lastLetter == '+' {
-		$key: str-slice($key, 1, str-length($key) - 1);
-	}
+    // Clean key
+    @if $firstLetter == '-' or $firstLetter == '|' {
+        $key: str-slice($key, 2, str-length($key));
+    }
+    @if $lastLetter == '-' or $lastLetter == '+' {
+        $key: str-slice($key, 1, str-length($key) - 1);
+    }
 
-	// Uncomment to debug
-	// @media screen {
-	// key: $key;
-	// key-length: $keyLength;
-	// first-letter: $firstLetter;
-	// last-letter: $lastLetter;
-	// }
+    // Uncomment to debug
+    // @media screen {
+    // key: $key;
+    // key-length: $keyLength;
+    // first-letter: $firstLetter;
+    // last-letter: $lastLetter;
+    // }
 
-	$minWidth: #{nth(map-get($breakpoints, $key), 1)}px;
-	$maxWidth: #{nth(map-get($breakpoints, $key), 2)}px;
+    $minWidth: #{nth(map-get($breakpoints, $key), 1)}px;
+    $maxWidth: #{nth(map-get($breakpoints, $key), 2)}px;
 
-	@if $lastLetter == '-' {
-		@if $firstLetter == '-' {
-			@media screen and (max-width: $maxWidth) and (orientation: landscape) {
-				@content;
-			}
-		}
-		@elseif $firstLetter == '|' {
-			@media screen and (max-width: $maxWidth) and (orientation: portrait) {
-				@content;
-			}
-		}
-		@else {
-			@media screen and (max-width: $maxWidth) {
-				@content;
-			}
-		}
-	}
-	@elseif $lastLetter == '+' {
-		@if $firstLetter == '-' {
-			@media screen and (min-width: $minWidth) and (orientation: landscape) {
-				@content;
-			}
-		}
-		@elseif $firstLetter == '|' {
-			@media screen and (min-width: $minWidth) and (orientation: portrait) {
-				@content;
-			}
-		}
-		@else {
-			@media screen and (min-width: $minWidth) {
-				@content;
-			}
-		}
-	}
-	@else {
-		@if $firstLetter == '-' {
-			@media screen and (min-width: $minWidth) and (max-width: $maxWidth) and (orientation: landscape) {
-				@content;
-			}
-		}
-		@elseif $firstLetter == '|' {
-			@media screen and (min-width: $minWidth) and (max-width: $maxWidth) and (orientation: portrait) {
-				@content;
-			}
-		}
-		@else {
-			@media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
-				@content;
-			}
-		}
-	}
+    @if $lastLetter == '-' {
+        @if $firstLetter == '-' {
+            @media screen and (max-width: $maxWidth) and (orientation: landscape) {
+                @content;
+            }
+        }
+        @elseif $firstLetter == '|' {
+            @media screen and (max-width: $maxWidth) and (orientation: portrait) {
+                @content;
+            }
+        } @else {
+            @media screen and (max-width: $maxWidth) {
+                @content;
+            }
+        }
+    }
+    @elseif $lastLetter == '+' {
+        @if $firstLetter == '-' {
+            @media screen and (min-width: $minWidth) and (orientation: landscape) {
+                @content;
+            }
+        }
+        @elseif $firstLetter == '|' {
+            @media screen and (min-width: $minWidth) and (orientation: portrait) {
+                @content;
+            }
+        } @else {
+            @media screen and (min-width: $minWidth) {
+                @content;
+            }
+        }
+    } @else {
+        @if $firstLetter == '-' {
+            @media screen and (min-width: $minWidth) and (max-width: $maxWidth) and (orientation: landscape) {
+                @content;
+            }
+        }
+        @elseif $firstLetter == '|' {
+            @media screen and (min-width: $minWidth) and (max-width: $maxWidth) and (orientation: portrait) {
+                @content;
+            }
+        } @else {
+            @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+                @content;
+            }
+        }
+    }
 }

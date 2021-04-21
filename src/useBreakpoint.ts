@@ -1,14 +1,14 @@
 import { useContext, useMemo } from 'react'
 import { options, LANDSCAPE, PORTRAIT } from '.'
-import {Context} from "./provider";
+import { Context } from './provider'
 
 type TBreakpointItem = [string, unknown]
 
 type TCalculateValue = (
     defaultValue: unknown,
     breakpointValues: TBreakpointItem[] | TBreakpointItem,
-    iw?: number,
-    ih?: number
+    iw: number,
+    ih: number
 ) => typeof defaultValue
 
 // We will save the calculated value until innerWidth changes
@@ -51,12 +51,7 @@ const calculateProplessValue = function (iw, ih) {
 }
 
 /* eslint-disable no-continue */
-export const calculateValue: TCalculateValue = function (
-    defaultValue,
-    breakpointValues = [],
-    iw = typeof window !== 'undefined' && window.innerWidth,
-    ih = typeof window !== 'undefined' && window.innerHeight
-) {
+export const calculateValue: TCalculateValue = function (defaultValue, breakpointValues = [], iw, ih) {
     if (defaultValue === undefined && !breakpointValues.length) {
         return calculateProplessValue(iw, ih)
     }
@@ -81,7 +76,7 @@ export const calculateValue: TCalculateValue = function (
 export function useBreakpoint(defaultValue: any, breakpointValues: any[]): any
 export function useBreakpoint(): { [key: string]: boolean }
 export function useBreakpoint(defaultValue?, breakpointValues?) {
-    const {innerWidth, innerHeight} = useContext(Context)
+    const { innerWidth, innerHeight } = useContext(Context)
     return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth, innerHeight), [
         innerWidth,
         innerHeight,

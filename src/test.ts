@@ -14,7 +14,7 @@ const iter = ([toBe, defaultValue, breakpointValues, iw]) => {
     it(`should return ${toBe} if dv=${defaultValue} bp=${breakpointValues
         .map(([k, v]) => `${k}:${v}`)
         .join(';')} and iw=${iw}`, () => {
-        expect(calculateValue(defaultValue, breakpointValues, iw)).toBe(toBe)
+        expect(calculateValue(defaultValue, breakpointValues, iw, 0)).toBe(toBe)
     })
 }
 
@@ -24,18 +24,26 @@ describe('useBreakpoint', () => {
         [300, 100, [['mobile', 300]], 400],
         [100, 100, [['mobile', 300]], 800],
         [300, 100, [['mobile+', 300]], 800],
-        [400, 100, [['tablet', 400], ['mobile+', 300]], 800]
+        [
+            400,
+            100,
+            [
+                ['tablet', 400],
+                ['mobile+', 300]
+            ],
+            800
+        ]
     ]
 
     // @ts-ignore
     testValues.forEach(iter)
 
     it(`should work with single array value`, () => {
-        expect(calculateValue(300, ['mobile+', 500], 400)).toBe(500)
+        expect(calculateValue(300, ['mobile+', 500], 400, 0)).toBe(500)
     })
 
     it(`should return 'is{Key}' properties if no props were given`, () => {
         // @ts-ignore
-        expect(calculateValue(undefined, [], 500).isMobile).toBe(true)
+        expect(calculateValue(undefined, [], 500, 0).isMobile).toBe(true)
     })
 })

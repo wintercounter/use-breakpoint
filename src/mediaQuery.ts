@@ -1,6 +1,6 @@
 import { options, LANDSCAPE, PORTRAIT, UP, DOWN, LIGHT, DARK } from '.'
 
-const mediaQuery = (input, returnType: StringConstructor|ObjectConstructor = String) => {
+const mediaQuery = (input, returnType: StringConstructor | ObjectConstructor = String) => {
     let generated = returnType === String ? '' : {}
     if (typeof input[0] === 'string') {
         input = [input]
@@ -47,11 +47,9 @@ const mediaQuery = (input, returnType: StringConstructor|ObjectConstructor = Str
             query += `and (orientation: portrait) `
         } else if (first === LANDSCAPE) {
             query += `and (orientation: landscape) `
-        }
-        else if (first === DARK) {
+        } else if (first === DARK) {
             query += `and (prefers-color-scheme: dark) `
-        }
-        else if (first === LIGHT) {
+        } else if (first === LIGHT) {
             query += `and (prefers-color-scheme: light) `
         }
 

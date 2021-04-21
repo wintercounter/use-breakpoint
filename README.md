@@ -14,8 +14,23 @@ npm i @w11r/use-breakpoint
 
 # Setup
 
-By default you don't need to do anything. The following default values
-are being used. It also shorthands.
+## Add provider
+
+Add `BreakpointProvider` in your React tree.
+
+```jsx
+import { BreakpointProvider } from '@w11r/use-breakpoint'
+
+...
+    <BreakpointProvider>
+        ...
+    </BreakpointProvider>
+...
+```
+
+## Default breakpoints
+
+The following default breakpoints are being used, including several shorthands.
 
 ```js
 const breakpoints = {
@@ -66,13 +81,12 @@ useBreakpoint(defaultValue, breakpointValues)
   ['tablet', 400]
 ]
 
-// In case you have a single breakpoint value, `['mobile', 300]`
-is enough instead of `[['mobile', 300]]`
+// In case you have a single breakpoint value, `['mobile', 300]` is enough instead of `[['mobile', 300]]`
 ```
 
 ## Without passing values
 
-In case you dont specify any value to the hook, it'll return a generated
+In case you don't specify any value to the hook, it'll return a generated
 object including boolean values for each breakpoint keys that's being
 defined in options.
 
@@ -148,7 +162,7 @@ const { isMobile } = useBreakpoint()
 const isMobile = useBreakpoint(false, ['mobile', true])
 ```
 
-> You can also access the values with suffix and prefix but you need
+> You can also access the values with suffix and prefix, but you need
 > to rename the variables because it contains invalid character:
 > `const { 'isMobile+': isMobile } = useBreakpoint()`
 
@@ -250,7 +264,8 @@ mediaQuery([')', 'content'])
 ## Is there any best practice suggestion?
 
 Yes! Use as fewer hooks as possible. It's always faster to have a single
-`isMobile` variable and have simple conditions based on it.
+`isMobile` variable and have simple conditions based on it. It's even better
+if you can solve your size related cases using pure CSS Media Queries.
 
 ## Why not using an `Object`? Why the `Array` structure?
 
