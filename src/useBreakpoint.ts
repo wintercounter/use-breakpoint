@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react'
-import { options, useResize, LANDSCAPE, PORTRAIT } from '.'
+import { useContext, useMemo } from 'react'
+import { options, LANDSCAPE, PORTRAIT } from '.'
+import {Context} from "./provider";
 
 type TBreakpointItem = [string, unknown]
 
@@ -77,23 +78,10 @@ export const calculateValue: TCalculateValue = function (
     return defaultValue
 }
 
-// @ts-ignore
-const getInnerWidth = () => (typeof window !== 'undefined' ? window.innerWidth : global.innerWidth || 1920)
-// @ts-ignore
-const getInnerHeight = () => (typeof window !== 'undefined' ? window.innerHeight : global.innerHeight || 1080)
-
-let cachedIw = getInnerWidth()
-let cachedIh = getInnerHeight()
-
 export function useBreakpoint(defaultValue: any, breakpointValues: any[]): any
 export function useBreakpoint(): { [key: string]: boolean }
 export function useBreakpoint(defaultValue?, breakpointValues?) {
-    const [[innerWidth, innerHeight], setInnerWidth] = useState([cachedIw, cachedIh])
-    useResize(() => {
-        cachedIw = getInnerWidth()
-        cachedIh = getInnerHeight()
-        setInnerWidth([cachedIw, cachedIh])
-    })
+    const {innerWidth, innerHeight} = useContext(Context)
     return useMemo(() => calculateValue(defaultValue, breakpointValues, innerWidth, innerHeight), [
         innerWidth,
         innerHeight,
