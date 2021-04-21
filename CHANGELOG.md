@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/wintercounter/use-breakpoint/compare/v1.7.1...v2.0.0) (2021-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **context:** Add provider to your React tree
+
+```js
+import { BreakpointProvider } from '@w11r/use-breakpoint'
+```
+
+### Features
+
+* **context:** move resize logic into context provider ([74e3531](https://github.com/wintercounter/use-breakpoint/commit/74e3531ca152e63d1af0632d769d3bd2c8e5f796))
+* **mediaQuery:** add support for prefix only breakpoints ([436e6e7](https://github.com/wintercounter/use-breakpoint/commit/436e6e7cd50b5a8575170e3209e98a4751af4541))
+* **mediaQuery:** add support for shorthands ([2a58497](https://github.com/wintercounter/use-breakpoint/commit/2a58497dd64130a4eb81f86a6cce8dcc2fe7f7a4))
+
 ## [1.8.0](https://github.com/wintercounter/use-breakpoint/compare/v1.7.1...v1.8.0) (2021-01-02)
 
 
